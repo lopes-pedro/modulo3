@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posicionando o elemento</title>
+    <style>
+        body{
+            background-color:#141414;
+        }
+        .container{
+
+
+            width: 90%;
+            height: 96vh;
+
+            background:purple url("img/target001.png");
+            background-size: 100% 100%;
+
+            margin:auto;
+            margin-top: 30px;
+            position: relative;
+        }
+        .conteudo{
+            width: 20%;
+            height: 20%;
+
+            background: blue url("img/target001.png");
+            background-size: 100% 100%;
+
+            position: absolute;
+            top:50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+
+        /*
+            Estilização do conteúdo 
+         */
+
+         section.text{
+            max-width: 1000px;
+            margin:auto;
+
+            background-color:white;
+            box-shadow: 1px 1px 10px 20px white;
+         }
+         section.text h1,h2,h3,h4,h5,p{
+             font-family: Arial, Helvetica, sans-serif;
+         }
+         h1{
+             color:white;
+             background-image: linear-gradient(to right, black 5%, white 95%);
+             padding:10px;
+
+
+         }
+
+         /* Estilização dos tests */
+
+         #container-test{
+             height: 70vh;
+
+             
+         }
+
+         #conteudo-test{
+             left:0px;
+             top:0px;
+
+             transform: translate(0px, 0px);
+
+             transition: 0.5s;
+         }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="text">
+            <article id="position">
+                <h1>A variação da posição</h1>
+
+                <p>
+                    Para que mude-se a posição de um conteúdo, ele deve ser separado entre containers pais e filhos. O pai deve ter como atributo <code>position: relative</code> e o filho <code>position:absolute</code>
+                </p>
+                <p>O atributo <code>position:absolute</code> do filho se baseia no canto superior esquerdo do elemento e pode ser variado com os outros atributos <code>left</code> e <code>right</code>. Dessa forma, com ambos os valores em 50% a parte superior esquerda do elemento fica posicionada centralmente, não os centros alinhados. Para corrigir isso, usa-se o atributo <code>transform: translate()</code> para alinhar os dois centros. Veja o CSS</p>
+            </article>
+        </section>
+        <section class="container">
+            <article class="conteudo">
+
+            </article>
+        </section>
+
+        <section class="text">
+            <article id="experiment">
+                <h1>Varie você mesmo!!</h1>
+
+                <label for="left">Insira a distância da esquerda (left)</label>
+                <input type="number" name ="left" id="left" placeholder="Left">
+                <label for="type">Insira a medida</label>
+                <select name="type-top" id="type-left">
+                    <option value="px">Píxels</option>
+                    <option value="%">Porcentagem</option>
+                </select>
+                <br>
+                <label for="top">Insira a distância do topo (top)</label>
+                <input type="number" name="top" id="top" placeholder="top">
+                <label for="type-top">Insira a medida</label>
+                <select name="type" id="type-top">
+                    <option value="px">Píxels</option>
+                    <option value="%">Porcentagem</option>
+                </select>
+                <br>
+                <button id="btn">Enviar</button>
+            </article>
+        </section>
+        
+        <section class="container" id="container-test">
+            <article class="conteudo" id="conteudo-test">
+
+            </article>
+        </section>
+    </main>
+
+    <script src="scripts/fundo005.js">
+        
+    </script>
+</body>
+</html>

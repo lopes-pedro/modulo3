@@ -5,35 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mudando a posição do fundo</title>
+    <link rel="stylesheet" href="../estiloGeral/estilo.css">
 
     <style>
-        div.bloco{
+        body{
+            background-color:#141414;
             background-image: url("img/wallpaper002.jpg");
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
 
-            height: 200px;
+            height: 100vh;
+        }  
+        main{
+            background-color:white;
 
-            margin-bottom: 30px;
+            width: 60%;
+            margin:auto;
 
-            border:1px solid black;
-        }
-        #q1{
-            background-position: left top;
-        }
-        #q2{
-            background-position: left center;
-        }
-        #q3{
-            background-position: right bottom;
-        }
-        #q4{
-            background-position: center center;
-        }
+            padding:10px;
+
+            border:1px solid #141414;
+        }   
     </style>
 </head>
 <body>
-    <div class="bloco" id="q1"></div>
-    <div class="bloco" id="q2"></div>
-    <div class="bloco" id="q3"></div>
-    <div class="bloco" id="q4"></div>
+    <main>
+        <article>
+            <h1>Teste de imagem de fundo</h1>
+            <p>O tamanho de uma imagem de fundo pode ser definido a partir do atributo CSS <code>background-size</code> e, quando é para ocupar totalmente o tamanho da div, coloca-se os valores como 100% 100%, o primeiro para largura, o segundo para altura. Porém, distorce a imagem</p>
+
+            <hr>
+
+            <p>Contudo, isso pode ser resolvido inserindo outros valores para o atributo. A exemplo, o contain, primeiro deles, força a exibição total da imagem, sem distorções, criando barras pretas em partes. O segundo valor, <strong>cover</strong>, define que o fundo ocupará 100% do tamanho do elemento pai, mesmo que isso corte parte da foto</p>
+        </article>
+    </main>
 </body>
 </html>
