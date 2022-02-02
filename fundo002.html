@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundos que se repetem</title>
     <style>
-        body h1, p{
+        *{
+            padding:0;
+            margin:0;
+        }
+
+        body h1,h2,h3,h4,h5, p{
             font-family: Arial, Helvetica, sans-serif;
         }
         main{
@@ -17,7 +22,6 @@
 
             background-color:#141414;
         }
-
         article{
             width: 79%;
 
@@ -30,13 +34,64 @@
             margin-bottom: 50px;
             padding:10px;
         }
-
+        /* Repetição do fundo */
         #quadrado{
             height: 100vh;
             width: 100%;
 
             background-image: url("https://github.com/lopes-pedro.png");
         }
+
+        /* Mudando a posição do fundo */
+
+        div.bloco{
+            background-image: url("img/wallpaper002.jpg");
+
+            height: 200px;
+            width: 100%;
+
+            margin-bottom: 5px;
+        }
+        #q1{
+            background-position: left top;
+        }
+        #q2{
+            background-position: left center;
+        }
+        #q3{
+            background-position: right bottom;
+        }
+        #q4{
+            background-position: center center;
+        }
+
+        #exemplo{
+            width: 100%;
+            height: 130vh;
+
+            margin:auto;
+
+            background-repeat: no-repeat;
+
+            background-image: url("img/wallpaper003.jpg");
+        }
+
+        /* Experimento */
+
+        .ex{
+            height: 500px;
+            width: 100%;
+            
+            background-image: url("https://github.com/lopes-pedro.png");
+            background-repeat: no-repeat;
+            background-size: 200px;
+
+            background-position: center center;
+
+            transition:3s;
+        }
+
+
     </style>
 </head>
 <body>
@@ -44,9 +99,58 @@
         <article>
             <h1>Fundos que se repetem!!</h1>
             <p>As imagens de fundo têm por configuração padrão a sua repetição, tanto horizontal, quanto vertial. E a alteração do tamanho individual de cada repetição independe do tamanho da tela. Ou seja, fixo</p>
-            <p>A repetição do fundo pode ser configurado a partir do atributo <code>background-repeat</code></p>
+            <p>A repetição do fundo pode ser configurado a partir do atributo <code><strong>background-repeat</strong></code></p>
         </article>
         <div id="quadrado"></div>
+
+        <article>
+            <h1>Mudando a posição do fundo</h1>
+            <p>
+                O ponto de ancoragem do fundo (onde ele se fixa. Se baseia), por padrão à esquerda e no topo, pode ser variado nas seguintes características: à esquerda, à direita, ao centro, ao topo e à parte de baixo, como nos seguintes exemplos. Consulte o código css
+            </p>
+            <h2>Ponto de ancoragem</h2>
+            <p>O ponto de ancoragem delimita onde a foto começa. O centro é no meio da imagem, a direita, na direita e por aí em diante. Ele é definido por dois parâmetros. Imagine como linhas e colunas, o primeiro divide as colunas e o segundo as linhas. São 3 colunas, left, center, right, e 3 linhas, top, center, bottom.</p>
+        </article>
+        <div class="bloco" id="q1"></div>
+        <div class="bloco" id="q2"></div>
+        <div class="bloco" id="q3"></div>
+        <div class="bloco" id="q4"></div>
+
+        <article>
+            <h1>Segue o exemplo:</h1>
+
+            <p>Brinque no CSS</p>
+        </article>
+
+        <div id="exemplo"></div>
+
+        <article><h1>Experimento:</h1></article>
+        <div class="ex" id="experimento"></div>
+
+        <article>
+            <h1>Mude automaticamente</h1>
+
+            <label for="linha">Selecione a posição da linha</label>
+            <select name="linha" id="linha">
+                <option value="left">Esquerda</option>
+                <option value="center" selected>Centro</option>
+                <option value="right">Direita</option>
+            </select>
+
+            <label for="coluna">Selecione a posição da coluna</label>
+            <select name="coluna" id="coluna">
+                <option value="top">Topo</option>
+                <option value="center" selected>Centro</option>
+                <option value="bottom">De baixo</option>
+            </select>
+
+            <button id="bt">Testar</button>
+        </article>
+
+        <div class="ex" id="auto"></div>
     </main>
+
+    <!-- Script de testes de fundo -->
+    <script src="scripts/fundo002.js"></script>
 </body>
 </html>
