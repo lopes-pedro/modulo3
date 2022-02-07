@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciando estudo de tabelas</title>
+    <style>
+        table{
+            min-width: 300px;
+            border-collapse: collapse;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            margin-bottom: 20px;
+        }
+        
+        td, th{
+            border:1px solid black;
+            margin:0;
+
+            padding:2px;
+        }
+        td:hover{
+            background-color:rgb(70, 70, 70);
+            color:white;
+
+            font-weight: bold;
+
+            cursor: auto;
+        }
+
+        th{
+            background-color: darkgray;
+        }
+
+        tbody > tr:nth-child(even){
+            background-color: darkgray;
+        }
+        /* A pseudoclasse nth-child faz estilizações específicas para os elementos filhos sem muito trabalho extra. Dentro do parênteses, ele recebe o valor da frequência de que a configuração é dada. No caso, (2n) a frequência é de dois em dois */
+
+        caption{
+            font-size: 1.1em;
+
+            background-color: #141414;
+            color:white;
+            font-weight: bold;
+            padding:5px;
+        }
+
+        thead > tr > th {
+            position:sticky;
+            top:-1px;
+
+            background-color: rgb(24, 24, 24);
+            color:white;
+            padding:10px;
+            font-weight: normal;
+        }
+
+        tfoot, tfoot > th{
+            background-color:#141414;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Minha primeira tabela</h1>
+    <p>Toda tabela segue uma hierarquia de tags para a tabela</p>
+    <pre>
+    <ul>
+        <li>Table = tabela (table)</li>
+            <li>Table row = linha da tabela (tr)</li>
+            <li>Table data = dado da tabela (td)</li>
+    </ul>
+    </pre>
+
+    <table>
+        <tr><!--  Primeira inha -->
+            <td>A1</td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+        <tr> <!--Segunda linha-->
+            <td>A2</td>
+            <td>B2</td>
+            <td>C2</td>
+        </tr>
+        <tr> <!--Terceira linha-->
+            <td>A3</td>
+            <td>B3</td>
+            <td>C3</td>
+        </tr>
+        <tr> <!--Quarta linha-->
+            <td>A1</td>
+            <td>B1</td>
+            <td>C1</td>
+        </tr>
+    </table>
+
+    <h1>Trabalhando com tabelas grandes</h1>
+    <p>As tabelas grandes e detalhadas seguem uma hierarquia semelhante ao HTML, tendo cabeçalho (thead), corpo (tbody) e rodapé (tfoot)</p>
+    <p>Toda tabela também possui uma legenda, definido pela tag caption (caption)</p>
+    <p>Tudo que não for dado é TH, tudo que for é TD</p>
+
+    <h2>Escopos: </h2>
+    
+    <p>Os THs, que não definem dados, possuem escopos - separados em coluna (col) e linha (row). Como os ths não definem dados, eles os separam e agrupam. Por exemplo, um TH com valor de jogador na linha, possui escopo row. Na tabela abaixo, pode se reparar nisso</p>
+
+    <h2>Uso de pseudoclasse para zebrar as linhas</h2>
+    
+    <p>A pseudoclasse nth-child faz estilizações específicas para os elementos filhos sem muito trabalho extra. Dentro do parênteses, ele recebe o valor da frequência de que a configuração é dada. No caso, (2n) a frequência é de dois em dois</p>
+    <p>Mas também pode receber valores por escrito que facilitam a compreensão, como (odd) que significa ímpares e (even) pares</p>
+
+    <h2>Mesclagem de células</h2>
+    <p>Em algumas situações, uma tabela de três ou mais colunas terá uma célula que ocupará um número inferior de colunas do que o resto das células. Para isso, se mescla as células em colunas ou em linhas. Uma célula que precisa se expandir horizontalmente, por exemplo, ocupará uma coluna a mais. Ou seja, sua expansão será na coluna. O contrário é valido também.</p>
+    <p>O que define a mesclagem de células é o atributo do HTML rowspan (para linhas) e colspan(para colunas)</p>
+
+    <h2>Personalização de coluns</h2>
+
+    <p>Quando se quer editar as configurações de uma coluna, usa-se a tag colgroup do HTML e as tags col dentro dela. Cada col representa uma coluna em ordem</p>
+
+    <table>
+        <colgroup>
+            <col style="font-size: 2em;">
+            <col style="font: small-caps;">
+        </colgroup>
+
+        <tr>
+            <th scope="col">Sei lá</th>
+            <th scope="col">Ala</th>
+        </tr>
+        <tr>
+            <td>Aasas</td>
+            <td>KJFKJ</td>
+        </tr>
+        <tr>
+            <td>sdjsd</td>
+            <td>jfkjdkfjjsk
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <colgroup>
+            <!-- Coluna jogador -->
+            <col class="jogador" style="color:white;">
+            <!-- Coluna gols -->
+            <col class="gols">
+            <!-- Coluna velocidade máxima -->
+            <col class="vel">
+        </colgroup>
+
+        <caption>Jogadores de futebol</caption>
+
+        <thead>
+            <th scope="col">Jogador</th>
+            <th scope="col">Gols</th>
+            <th scope="col">Velocidade máxima atingida</th>
+        </thead>
+
+        <tbody>
+            <th scope="row">CR7</th>
+            <td>700 mil sei la</td>
+            <td>90km/h</td>
+        </tbody>
+    </table>
+
+    <table>
+        <caption>População por estado</caption>
+        <thead>
+            <tr>  
+                <th>Unidade federativa</th>
+                <th>População</th>
+                <th>% da população geral</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    São Paulo
+                </td>
+                <td>46 649 132</td>
+                <td>21,9%</td>
+            </tr>
+
+            <tr>
+                <td>
+                    Minas Gerais
+                </td>
+                <td>21 411 923</td>
+                <td>10,1%</td>
+            </tr>
+            <tr>
+                <td>Naosei</td>
+                <td>Exemplo</td>
+                <td>Seila%</td>
+            </tr>
+            <tr>
+                <td>Naosei</td>
+                <td>Exemplo</td>
+                <td>Seila%</td>
+            </tr>
+            <tr>
+                <td>Naosei</td>
+                <td>Exemplo</td>
+                <td>Seila%</td>
+            </tr>
+            <tr>
+                <td>Naosei</td>
+                <td>Exemplo</td>
+                <td>Seila%</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <th scope="row">Total de habitantes</th>
+            <td colspan="2">Um monte</td>
+        </tfoot>
+    </table>
+
+    <h1>Teste desafio</h1>
+
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td rowspan="2">3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td colspan="3">oito</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td rowspan="2">10</td>
+            <td colspan="2">11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td colspan="4">A</td>
+            <td rowspan="4">B</td>
+        </tr>
+        <tr>
+            <td rowspan="4">C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+        </tr>
+        <tr>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+        </tr>
+        <tr>
+            <td>
+                J
+            </td>
+            <td>L</td>
+            <td>M</td>
+        </tr>
+        <tr>
+            <td colspan="4">N</td>
+        </tr>
+    </table>
+
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, libero. Perspiciatis ipsum ullam blanditiis minus nostrum consequatur aut quidem sapiente, assumenda, laborum distinctio nobis possimus delectus sint fugit? Quasi, laboriosam Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate repellendus corporis eaque eos aspernatur excepturi beatae blanditiis placeat dolorem quibusdam. Saepe quaerat, eligendi pariatur quod quasi voluptas itaque voluptatibus culpa? lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa tenetur, aut incidunt beatae earum necessitatibus magnam praesentium dolor architecto iure obcaecati iste odit ipsum, qui illum mollitia amet consectetur fugiat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eligendi voluptatum consequatur consectetur unde, voluptates obcaecati ea ut id illum delectus asperiores voluptate modi perspiciatis beatae culpa nostrum quidem dolore. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi ratione id quidem voluptatem maiores asperiores nesciunt necessitatibus animi numquam inventore qui unde eaque, atque pariatur voluptates, corporis voluptatibus dolorem? Adipisci! Lorem ipsum dolor sit amet consectetur adipisicing elit. At porro totam beatae explicabo ducimus officiis dicta culpa tenetur illum, quae cupiditate neque sint repudiandae voluptates, accusamus corrupti? Reprehenderit, perferendis repellat.
+    </p>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, libero. Perspiciatis ipsum ullam blanditiis minus nostrum consequatur aut quidem sapiente, assumenda, laborum distinctio nobis possimus delectus sint fugit? Quasi, laboriosam Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate repellendus corporis eaque eos aspernatur excepturi beatae blanditiis placeat dolorem quibusdam. Saepe quaerat, eligendi pariatur quod quasi voluptas itaque voluptatibus culpa? lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa tenetur, aut incidunt beatae earum necessitatibus magnam praesentium dolor architecto iure obcaecati iste odit ipsum, qui illum mollitia amet consectetur fugiat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eligendi voluptatum consequatur consectetur unde, voluptates obcaecati ea ut id illum delectus asperiores voluptate modi perspiciatis beatae culpa nostrum quidem dolore. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi ratione id quidem voluptatem maiores asperiores nesciunt necessitatibus animi numquam inventore qui unde eaque, atque pariatur voluptates, corporis voluptatibus dolorem? Adipisci! Lorem ipsum dolor sit amet consectetur adipisicing elit. At porro totam beatae explicabo ducimus officiis dicta culpa tenetur illum, quae cupiditate neque sint repudiandae voluptates, accusamus corrupti? Reprehenderit, perferendis repellat.
+    </p>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, libero. Perspiciatis ipsum ullam blanditiis minus nostrum consequatur aut quidem sapiente, assumenda, laborum distinctio nobis possimus delectus sint fugit? Quasi, laboriosam Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate repellendus corporis eaque eos aspernatur excepturi beatae blanditiis placeat dolorem quibusdam. Saepe quaerat, eligendi pariatur quod quasi voluptas itaque voluptatibus culpa? lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa tenetur, aut incidunt beatae earum necessitatibus magnam praesentium dolor architecto iure obcaecati iste odit ipsum, qui illum mollitia amet consectetur fugiat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eligendi voluptatum consequatur consectetur unde, voluptates obcaecati ea ut id illum delectus asperiores voluptate modi perspiciatis beatae culpa nostrum quidem dolore. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi ratione id quidem voluptatem maiores asperiores nesciunt necessitatibus animi numquam inventore qui unde eaque, atque pariatur voluptates, corporis voluptatibus dolorem? Adipisci! Lorem ipsum dolor sit amet consectetur adipisicing elit. At porro totam beatae explicabo ducimus officiis dicta culpa tenetur illum, quae cupiditate neque sint repudiandae voluptates, accusamus corrupti? Reprehenderit, perferendis repellat.
+    </p>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, libero. Perspiciatis ipsum ullam blanditiis minus nostrum consequatur aut quidem sapiente, assumenda, laborum distinctio nobis possimus delectus sint fugit? Quasi, laboriosam Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate repellendus corporis eaque eos aspernatur excepturi beatae blanditiis placeat dolorem quibusdam. Saepe quaerat, eligendi pariatur quod quasi voluptas itaque voluptatibus culpa? lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa tenetur, aut incidunt beatae earum necessitatibus magnam praesentium dolor architecto iure obcaecati iste odit ipsum, qui illum mollitia amet consectetur fugiat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eligendi voluptatum consequatur consectetur unde, voluptates obcaecati ea ut id illum delectus asperiores voluptate modi perspiciatis beatae culpa nostrum quidem dolore. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi ratione id quidem voluptatem maiores asperiores nesciunt necessitatibus animi numquam inventore qui unde eaque, atque pariatur voluptates, corporis voluptatibus dolorem? Adipisci! Lorem ipsum dolor sit amet consectetur adipisicing elit. At porro totam beatae explicabo ducimus officiis dicta culpa tenetur illum, quae cupiditate neque sint repudiandae voluptates, accusamus corrupti? Reprehenderit, perferendis repellat.
+    </p>
+</body>
+</html>
